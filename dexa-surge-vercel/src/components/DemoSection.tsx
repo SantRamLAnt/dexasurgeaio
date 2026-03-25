@@ -1,6 +1,8 @@
 // @ts-nocheck
 'use client';
 
+import { Activity, ShieldCheck } from 'lucide-react';
+
 export default function DemoSection() {
   return (
     <section id="demo" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
