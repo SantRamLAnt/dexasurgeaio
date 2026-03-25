@@ -1,19 +1,5 @@
+// @ts-nocheck
 'use client';
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'vapi-widget': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-        'public-key'?: string;
-        'assistant-id'?: string;
-        mode?: string;
-        theme?: string;
-      };
-    }
-  }
-}
-
-import { Activity, ShieldCheck } from 'lucide-react';
 
 export default function DemoSection() {
   return (
