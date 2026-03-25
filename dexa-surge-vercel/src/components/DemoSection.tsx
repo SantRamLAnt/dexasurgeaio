@@ -1,4 +1,20 @@
-"use client";
+'use client';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'vapi-widget': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        'public-key'?: string;
+        'assistant-id'?: string;
+        mode?: string;
+        theme?: string;
+      };
+    }
+  }
+}
+
+import { Activity, ShieldCheck } from 'lucide-react';
+// ... rest of your imports and code below
 
 import { Activity, ShieldCheck } from 'lucide-react';
 
