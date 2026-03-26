@@ -1,7 +1,20 @@
 // @ts-nocheck
-'use client';
+"use client";
 
 import { Activity, ShieldCheck } from 'lucide-react';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'vapi-widget': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        'public-key'?: string;
+        'assistant-id'?: string;
+        mode?: string;
+        theme?: string;
+      };
+    }
+  }
+}
 
 export default function DemoSection() {
   return (
@@ -107,44 +120,44 @@ export default function DemoSection() {
 
             {/* Vapi Widget Container */}
             <div style={{
-              padding: '64px 32px',
+              padding: '40px 16px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              minHeight: '400px',
-              position: 'relative'
+              position: 'relative',
+              width: '100%'
             }}>
-              <div style={{ 
-                position: 'absolute', 
-                top: '50%', 
-                left: '50%', 
-                transform: 'translate(-50%, -50%)', 
-                zIndex: 10,
+              <p style={{ color: 'var(--foreground)', fontSize: '1.2rem', fontWeight: 600, textAlign: 'center', maxWidth: '500px', marginBottom: '32px', zIndex: 20, textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+                Click the button below to connect to the live AI voice server. Accept microphone permissions when prompted.
+              </p>
+
+              {/* Strict Responsive Container for Vapi Widget */}
+              <div style={{
+                position: 'relative',
+                width: '100%',
+                maxWidth: '400px',
+                margin: '0 auto',
+                height: '450px',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '24px'
+                justifyContent: 'center',
+                overflow: 'hidden',
+                borderRadius: '16px',
+                backgroundColor: '#0a0a0a',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                zIndex: 10,
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
               }}>
-                <p style={{ color: 'var(--foreground)', fontSize: '1.2rem', fontWeight: 600, textAlign: 'center', maxWidth: '400px', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
-                  Click the button below to connect to the live AI voice server. Accept microphone permissions when prompted.
-                </p>
-                
-                {/* Embedded Vapi Widget */}
-                <div style={{
-                  padding: '8px',
-                  borderRadius: '100px',
-                  backgroundColor: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  boxShadow: '0 0 30px rgba(0,0,0,0.5)'
-                }}>
-                  <vapi-widget 
-                    public-key="8c3a3c1c-48f1-4024-a0c0-0506271b463c" 
-                    assistant-id="bd759a3e-1a1d-4658-aa46-f70fbf5c7dee" 
-                    mode="voice" 
-                    theme="dark"
-                  ></vapi-widget>
-                </div>
+                {/* @ts-ignore */}
+                <vapi-widget 
+                  public-key="8c3a3c1c-48f1-4024-a0c0-0506271b463c" 
+                  assistant-id="bd759a3e-1a1d-4658-aa46-f70fbf5c7dee" 
+                  mode="voice" 
+                  theme="dark"
+                  style={{ width: '100%', height: '100%' }}
+                ></vapi-widget>
               </div>
 
                {/* Decorative server scanning lines */}
